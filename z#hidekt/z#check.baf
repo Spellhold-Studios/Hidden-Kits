@@ -1,0 +1,118 @@
+// wwwwwwwwchecks if player is eligible to be a hidden kit
+
+// first check - sets class type as follows
+// 1 - Mage
+// 2 - Fighter
+// 3 - Cleric
+// 4 - Thief
+// 11 - Druid
+
+// Converts the User into a Hidden Kit
+
+IF	CheckStatGT(Myself, 12,LEVEL2)
+	Global("Z#HideKitA","LOCALS",2)
+	Class(Myself,FIGHTER_DRUID)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",51)
+	ActionOverride(Myself, AddKit(Z#SYLWRD) )
+	CreateVisualEffectObject("SPPOLYMP",Myself)
+	ChangeAIScript("Z#SYLWRD",GENERAL)
+END
+
+IF	CheckStatGT(Myself, 12,LEVEL2)
+	Global("Z#HideKitA","LOCALS",2)
+	Class(Myself,FIGHTER_THIEF)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",51)
+	ActionOverride(Myself, AddKit(Z#SHDBLD) )
+	CreateVisualEffectObject("SPUSEANY",Myself)
+	ChangeAIScript("Z#SHDBLD",GENERAL)
+END
+
+IF	CheckStatGT(Myself, 12,LEVEL2)
+	Global("Z#HideKitA","LOCALS",2)
+	Class(Myself,FIGHTER_MAGE)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",51)
+	ActionOverride(Myself, AddKit(Z#SPSTEL) )
+	CreateVisualEffectObject("SPWHIRL",Myself)
+	ChangeAIScript("Z#SPSTEL",GENERAL)
+END
+
+IF	CheckStatGT(Myself, 12,LEVEL2)
+	Global("Z#HideKitA","LOCALS",1)
+	Class(Myself,MAGE_THIEF)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",51)
+	ActionOverride(Myself, AddKit(Z#ELDRPH) )
+	CreateVisualEffectObject("SPUSEANY",Myself)
+	ChangeAIScript("Z#ELDRPH",GENERAL)
+END
+
+IF	CheckStatGT(Myself, 12,LEVEL2)
+	Global("Z#HideKitA","LOCALS",2)
+	Class(Myself,FIGHTER_CLERIC)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",51)
+	ActionOverride(Myself, AddKit(Z#PRELTE) )
+	CreateVisualEffectObject("SPWHIRL",Myself)
+	ChangeAIScript("Z#PRELTE",GENERAL)
+END
+
+IF	CheckStatGT(Myself, 12,LEVEL2)
+	Global("Z#HideKitA","LOCALS",3)
+	Class(Myself,CLERIC_MAGE)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",51)
+	ActionOverride(Myself, AddKit(Z#ARCHMG) )
+	CreateVisualEffectObject("SPSUMP",Myself)
+	ChangeAIScript("Z#ARCHMG",GENERAL)
+END
+
+IF	CheckStatGT(Myself, 12,LEVEL2)
+	Global("Z#HideKitA","LOCALS",3)
+	Class(Myself,CLERIC_RANGER)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",51)
+	ActionOverride(Myself, AddKit(Z#DVRANG) )
+	CreateVisualEffectObject("SPSUMP",Myself)
+	ChangeAIScript("Z#DVRANG",GENERAL)
+END
+
+// Notes the Original Class of the User
+
+IF	Class(Myself,MAGE)
+	Global("Z#HideKitA","LOCALS",0)
+	Kit(Myself,TRUECLASS)
+	LevelGT(Myself,11)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",1)
+END
+      
+IF	Class(Myself,FIGHTER)
+	Global("Z#HideKitA","LOCALS",0)
+	Kit(Myself,TRUECLASS) 
+	LevelGT(Myself,11)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",2)
+END
+
+IF	Class(Myself,CLERIC)
+	Global("Z#HideKitA","LOCALS",0)
+	Kit(Myself,TRUECLASS) 
+	LevelGT(Myself,11)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",3)
+END
+
+

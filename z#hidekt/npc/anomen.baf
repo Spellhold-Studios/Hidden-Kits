@@ -1,0 +1,49 @@
+// Hidden Kits
+
+IF	XPGT(Myself,1000000)
+	Class(Myself,FIGHTER_CLERIC)
+	Global("Z#HideKitA","LOCALS",33)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",51)
+	DisplayStringHead(Myself,@1040)
+	ActionOverride(Myself, AddKit(Z#PRELTE) )
+	CreateVisualEffectObject("SPWHIRL",Myself)
+	ChangeAIScript("Z#PRELTE",GENERAL)
+END
+
+// completed quest too early
+
+IF	!XPGT(Myself,1000000)
+// quest condition
+	AreaCheck("AR1400")
+	Dead("shadel")
+	Dead("shadra01")
+	Global("Z#HideKitA","LOCALS",0)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",21)
+	DisplayStringHead(Myself,@1040)
+END
+
+// completed quest OK
+
+IF	XPGT(Myself,1000000)
+// quest condition
+	AreaCheck("AR1400")
+	Dead("shadel")
+	Dead("shadra01")
+	Global("Z#HideKitA","LOCALS",0)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",33)
+END
+
+// unlock cheat
+
+IF	Global("Z#HideKitUnlock","GLOBAL",1)
+	GlobalLT("Z#HideKitA","LOCALS",30)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",33)
+END

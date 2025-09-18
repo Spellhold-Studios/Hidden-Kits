@@ -1,0 +1,55 @@
+// Hidden Kits
+
+IF	XPGT(Myself,1000000)
+	Class(Myself,MAGE_THIEF)
+	Global("Z#HideKitA","LOCALS",33)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",51)
+	DisplayStringHead(Myself,@1048)
+	ActionOverride(Myself, AddKit(Z#ELDRPH) )
+	CreateVisualEffectObject("SPUSEANY",Myself)
+	ChangeAIScript("Z#ELDRPH",GENERAL)
+END
+
+// completed quest too early
+
+IF	!XPGT(Myself,1000000)
+// quest condition
+	AreaCheck("AR1008")
+	Dead("hlshang")
+	Dead("hlrevan")
+	Dead("hlshyr")
+	Dead("hllayen")
+	Dead("hlvaxal")
+	Global("Z#HideKitA","LOCALS",0)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",21)
+	DisplayStringHead(Myself,@1048)
+END
+
+// completed quest OK
+
+IF	XPGT(Myself,1000000)
+// quest condition
+	AreaCheck("AR1008")
+	Dead("hlshang")
+	Dead("hlrevan")
+	Dead("hlshyr")
+	Dead("hllayen")
+	Dead("hlvaxal")
+	Global("Z#HideKitA","LOCALS",0)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",33)
+END
+
+// unlock cheat
+
+IF	Global("Z#HideKitUnlock","GLOBAL",1)
+	GlobalLT("Z#HideKitA","LOCALS",30)
+THEN
+	RESPONSE #100
+	SetGlobal("Z#HideKitA","LOCALS",33)
+END

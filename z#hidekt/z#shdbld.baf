@@ -1,0 +1,42 @@
+// resets the Equal Trigger to one less than - to be done 
+
+IF	Kit(Myself,Z#SHDBLD)
+	HotKey(L)
+	Global("Z#HLV1CH","LOCALS",1)
+THEN
+	RESPONSE #100	
+	SetGlobal("Z#HLV1CH","LOCALS",0)
+END
+
+// raises the Character's inactive class to one less than active class
+
+IF	Kit(Myself,Z#SHDBLD)
+	!Class(Myself,THIEF)
+	Class(Myself,FIGHTER_THIEF)
+	Global("Z#HLV1CH","LOCALS",0)
+THEN
+	RESPONSE #100	
+	ActionOverride(Myself, ApplySpellRES("Z#HLV1UP",Myself))
+END
+
+IF	Kit(Myself,Z#SHDBLD)
+	Class(Myself,THIEF)
+	!Class(Myself,FIGHTER_THIEF)
+	Global("Z#HLV1CH","LOCALS",0)
+THEN
+	RESPONSE #100	
+	SetGlobal("Z#HLV1CH","LOCALS",1)
+	ActionOverride(Myself, ApplySpellRES("Z#HLV1DN",Myself))
+END
+
+// Auto-ensures LEVEL1 level never exceeds the LEVEL2 Level
+
+IF	Kit(Myself,Z#SHDBLD)
+	Class(Myself,THIEF)
+	!Class(Myself,FIGHTER_THIEF)
+	Global("Z#HLV1CH","LOCALS",1)
+THEN
+	RESPONSE #100	
+	ActionOverride(Myself, ApplySpellRES("Z#HLV1DN",Myself))
+END
+

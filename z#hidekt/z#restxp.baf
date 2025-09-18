@@ -1,0 +1,26 @@
+// subtracts XP after every Rest
+
+IF	PartyRested()
+	Global("Z#HRestNoXPLost","GLOBAL",0)
+	XPGT(Myself,6000000)
+THEN	
+	RESPONSE #100
+	AddXPObject(Myself,-10000)
+END
+
+IF	PartyRested()
+	Global("Z#HRestNoXPLost","GLOBAL",0)
+	XPGT(Myself,3000000)
+	!XPGT(Myself,6000000)
+THEN	
+	RESPONSE #100
+	AddXPObject(Myself,-7500)
+END
+
+IF	PartyRested()
+	Global("Z#HRestNoXPLost","GLOBAL",0)
+	!XPGT(Myself,3000000)
+THEN	
+	RESPONSE #100
+	AddXPObject(Myself,-5000)
+END

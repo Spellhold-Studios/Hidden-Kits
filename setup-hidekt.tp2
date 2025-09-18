@@ -1,0 +1,588 @@
+BACKUP ~Z#HideKt\backup~
+AUTHOR ~zyraen@hotmail.com~
+// ALWAYS
+//   AT_INTERACTIVE_EXIT  ~VIEW Z#HideKt\readme-misc.html~
+// END
+ASK_EVERY_COMPONENT
+ LANGUAGE ~English~ ~English~ ~Z#HideKt\setup.tra~
+
+// all references to dummy.txt are dummy files
+
+// Hidden Kits 
+
+BEGIN ~Hidden Kits ~
+
+// S - Z#SPSTEL - Sarevok
+// W - Z#SYLWRD - Jaheira
+// B - Z#SHDBLD - Yoshimo, Korgan
+// E - Z#ELDRPH - Jan, Imoen
+// P - Z#PRELTE - Anomen, Viconia, Mazzy
+// A - Z#ARCHMG - Aerie
+// D - Z#DVRANG - Valygar, Minsc
+
+COPY ~Z#HideKt\Z#HFGL1.spl~ ~override~
+COPY ~Z#HideKt\Z#HMGL1.spl~ ~override~
+COPY ~Z#HideKt\Z#HCLL1.spl~ ~override~
+
+COPY ~Z#HideKt\Z#HLV1UP.spl~ ~override\Z#HLV1UP.spl~
+COPY ~Z#HideKt\Z#HLV1DN.spl~ ~override\Z#HLV1DN.spl~
+
+// Sylvan Warden (Druid)
+ADD_KIT ~Z#SYLWRD~
+  ~Z#SYLWRD                1           0           1           1           0           0           0           1~
+  ~Z#SYLWRD 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4~
+  ~Z#SYLWRD                0       0       0       0       0       0~
+  ~Z#SYLWRD                0       0       0       0       0       0~
+  ~Z#SYLWRD                0       0       0       0       0       0~
+  ~Z#SYLWRD                0       0       0       0       0       0~
+  ~Z#SYLWRD                1       1       1       1       1       1       1       1       1~
+  ~Z#SYLWRD                0       0       0       0       0       0~
+  ~Z#HideKt\Z#SYLWRD.2da~
+  ~~
+  ~0x00004000     11~
+  ~Z#W~
+  ~CHAN16 HAMM09 HELM07 BAG20 RING07 RING39 CLCK06 BOOT01 AMUL21 BRAC21 BELT08 * * * MISCBC CLCK26 SHLD25 STAF11 SW1H51 DAGG12~
+  SAY ~Sylvan Warden~
+  SAY ~Sylvan Warden~
+  SAY ~SYLVAN WARDEN : This Druid, having regained previous Warrior abilities, continues to advance in both disciplines, but at the cost of shape-shifting abilities. Furthermore, an eventual a choice has to be made, where the Warden chooses to specialise in either Melee or Magic attacks. By specialising in Melee, it affects Missile attacks negatively. The Warden can also choose to specialise in Spellcasting, sacrificing proficiency in all physical attacks.
+  
+  Advantages 
+  - Fighter level progresses at one less than Druid level
+  - can choose 1 of the following 2 HLAs Melee Specialisation or Druidic Magic. 
+  - Melee Specialisation gains +2 Thac0 and +7 Damage in Melee, but also receives penalties of -10 Thac0 in Missile 
+  - Druidic Magic Specialisation gains -3 Casting Speed and permanent Improved Alacrity, but gains a permanent -7 Thac0 
+    
+  Disadvantages 
+  - loses Shape-shifting abilities
+  - loses 75,000 XP for every level gained
+  - loses some XP upon every Rest~
+
+COPY ~Z#HideKt\Z#HWMAG.SPL~ ~override~
+SAY NAME1 ~Druidic Magic~
+SAY NAME2 ~Druidic Magic~
+SAY 0x50 
+~Druidic Magic
+- permanent Improved Alacrity and -3 Casting Speed 
+- all Physical attacks penalised by -7 Thac0
+- Sylvan Warden only~
+
+COPY ~Z#HideKt\Z#HWMEL.SPL~ ~override~
+SAY NAME1 ~Melee Specialisation~
+SAY NAME2 ~Melee Specialisation~
+SAY 0x50 
+~Melee Specialisation
+- permanent bonuses of +2 Thac0 and +7 damage to Melee attacks 
+- permanent penalty of -10 Thac0 to Missile attacks 
+- Sylvan Warden only~
+
+
+// Shadow Blade (Thief)
+ADD_KIT ~Z#SHDBLD~
+  ~Z#SHDBLD                1           1           1           1           1           0           0           0~
+  ~Z#SHDBLD 4 4 4 4 4    4 4 4 4 4    4 4 4 4 4    4 4 4 4 4    4 4 4 4 4    4 4 4 1 1    1 1 1 5 5    5 3 0 0 0    0 0 0 0 0    0 0 0 0 0 0~
+  ~Z#SHDBLD                0       0       0       0       0       0~
+  ~Z#SHDBLD                0       0       0       0       0       0~
+  ~Z#SHDBLD                0       0       0       0       0       0~
+  ~Z#SHDBLD                0       0       0       0       0       0~
+  ~Z#SHDBLD                1       1       1       1       1       1       1       1       1~
+  ~Z#SHDBLD                0       0       0       0       0       0~
+  ~Z#HideKt\Z#SHDBLD.2da~
+  ~~
+  ~0x00004000     4~
+  ~Z#B~
+  ~CHAN16 HAMM09 HELM07 BAG20 RING07 RING39 CLCK06 BOOT01 AMUL21 BRAC21 BELT08 * * * MISCBC CLCK26 SHLD25 STAF11 SW1H51 DAGG12~
+  SAY ~Shadow Blade~
+  SAY ~Shadow Blade~
+  SAY ~SHADOW BLADE : This Thief, having regained previous Warrior abilities, continues to advance in both disciplines, but at the cost of ranged and thieving abilities. The extremely experienced Shadow Blade can also increase the lethality even his already deadly backstab.
+  
+  Advantages 
+  - Fighter level progresses at one less than Thief level
+  - has HLA to increase Backstab Damage Factor by 1, selectable twice
+    
+  Disadvantages 
+  - -7 Thac0 when using Missile Attacks, at level 18
+  - -15 to Trap Setting and Pickpocketing, at level 18
+  - loses all Snare Traps after gaining this Kit
+  - loses 75,000 XP for every level gained
+  - loses some XP upon every Rest~
+
+COPY ~Z#HideKt\Z#HBBS1.SPL~ ~override\Z#HBBS1.SPL~
+SAY NAME1 ~Improved Backstab~
+SAY NAME2 ~Improved Backstab~
+SAY 0x50 
+~Enhanced Backstab 
+- Backstab permanently increased by 1
+- Shadow Blade only~
+
+COPY ~Z#HideKt\Z#HBPEN.SPL~ ~override~
+
+// Spell Steel (Mage)
+ADD_KIT ~Z#SPSTEL~
+  ~Z#SPSTEL                1           0           1           1           0           0           0           0~
+  ~Z#SPSTEL 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4~
+  ~Z#SPSTEL                0       0       0       0       0       0~
+  ~Z#SPSTEL                0       0       0       0       0       0~
+  ~Z#SPSTEL                0       0       0       0       0       0~
+  ~Z#SPSTEL                0       0       0       0       0       0~
+  ~Z#SPSTEL                1       1       1       1       1       1       1       1       1~
+  ~Z#SPSTEL                0       0       0       0       0       0~
+  ~Z#HideKt\Z#SPSTEL.2da~
+  ~~
+  ~0x00004000     1~
+  ~Z#S~
+  ~CHAN16 HAMM09 HELM07 BAG20 RING07 RING39 CLCK06 BOOT01 AMUL21 BRAC21 BELT08 * * * MISCBC CLCK26 SHLD25 STAF11 SW1H51 DAGG12~
+  SAY ~Spell Steel~
+  SAY ~Spell Steel~
+  SAY ~SPELL STEEL : This Mage, having regained previous Warrior abilities, has now stepped beyond simply the arcane and martial disciplines to master the use of both strengths at the same time. Through the use of special protective Magic, this Mage has gained abilities that enhance both areas of his power, but at a price...
+  
+  Advantages 
+  - Fighter level progresses at one less than Mage level
+  
+  Arcane Armor : 
+  - 1 use per day. gain 1 use at level 19, 25, 31
+  - lasts 12 hrs, undispellable
+  - sets AC to 1, with additional +1 AC bonus at level 16, 20, 25, 31 
+  - whenever the caster is struck, it drains 1d4 Life unless a successful Save vs Spells is made
+  - at level 20, provides -1 to casting Speed while active
+  
+  Disadvantages 
+  - -2 AC and -3 Thac0 whenever Arcane Armor is not active
+  - loses 75,000 XP for every level gained
+  - loses some XP upon every Rest~
+
+COPY ~Z#HideKt\Z#AARMRD.SPL~ ~override\Z#AARMRD.SPL~
+SAY NAME1 ~Arcane Surge~
+SAY NAME2 ~Arcane Surge~
+
+COPY ~Z#HideKt\Z#AARMR1.SPL~ ~override\Z#AARMR1.SPL~
+SAY NAME1 ~Arcane Armor~
+SAY NAME2 ~Arcane Armor~
+
+COPY ~Z#HideKt\Z#AARMR.SPL~ ~override\Z#AARMR.SPL~
+SAY NAME1 ~Arcane Armor~
+SAY NAME2 ~Arcane Armor~
+
+COPY ~Z#HideKt\Z#HSPEN.SPL~ ~override\Z#HSPEN.SPL~
+
+// Eldritch Phantom (Thief)
+ADD_KIT ~Z#ELDRPH~
+  ~Z#ELDRPH                1           1           1           1           1           0           0           0~
+  ~Z#ELDRPH 3 3 3 3 3    3 3 3 3 3    3 3 3 3 3    3 3 3 3 3    3 3 3 3 3    3 3 3 1 1    1 1 1 5 5    5 3 0 0 0    0 0 0 0 0    0 0 0 0 0 0~
+  ~Z#ELDRPH                0       0       0       0       0       0~
+  ~Z#ELDRPH                0       0       0       0       0       0~
+  ~Z#ELDRPH                0       0       0       0       0       0~
+  ~Z#ELDRPH                0       0       0       0       0       0~
+  ~Z#ELDRPH                1       1       1       1       1       1       1       1       1~
+  ~Z#ELDRPH                0       0       0       0       0       0~
+  ~Z#HideKt\Z#ELDRPH.2da~
+  ~~
+  ~0x00004000     4~
+  ~Z#E~
+  ~CHAN16 HAMM09 HELM07 BAG20 RING07 RING39 CLCK06 BOOT01 AMUL21 BRAC21 BELT08 * * * MISCBC CLCK26 SHLD25 STAF11 SW1H51 DAGG12~
+  SAY ~Eldritch Phantom~
+  SAY ~Eldritch Phantom~
+  SAY ~ELDRITCH PHANTOM : This Thief, having regained previous Mage abilities, continues to advance in both disciplines, but at the cost of thieving abilities. The Eldritch Phantom uses specialised magic to greatly enhance his stealth when necessary. Note that this ability is so powerful it may interfere even when targeting the Thief with beneficial spells. His reliance on his magic also makes him vulnerable to ranged attacks.
+  
+  Advantages 
+  - Mage level progresses at one less than Thief level
+
+  Obfuscation 
+  - 1 use per day. gain 1 use at level 20, 25, 32
+  - Improved Invisibility, undispellable, lasts 6 hrs
+  - Magic Resistance set to 10%, with extra 10% at levels 18, 24, 30. lasts 6 hrs, undispellable
+  - at level 24, gains Non-Detection effect, lasts 2 hrs 
+  - Invisibility, dispellable, lasts 6 hrs
+  
+  Disadvantages 
+  - takes 30% extra Damage from Missile attacks except when Obfuscation is in effect 
+  - does not gain Snare Traps after gaining this Kit
+  - loses 112,500 XP for every level gained
+  - loses some XP upon every Rest~
+
+COPY ~Z#HideKt\Z#OBFUS.SPL~ ~override\Z#OBFUS.SPL~
+SAY NAME1 ~Obfuscation~
+SAY NAME2 ~Obfuscation~
+
+COPY ~Z#HideKt\Z#HEPEN.SPL~ ~override\Z#HEPEN.SPL~
+
+
+// Prelate (Cleric)
+ADD_KIT ~Z#PRELTE~
+  ~Z#PRELTE                0           0           1           1           0           1           0           0~
+  ~Z#PRELTE 4 4 4 4 4    4 4 4 4 4    4 4 4 4 4    4 4 4 4 4    4 4 4 4 4    4 4 4 1 1    1 1 1 5 5    5 3 0 0 0    0 0 0 0 0    0 0 0 0 0 0~
+  ~Z#PRELTE                0       0       0       0       0       0~
+  ~Z#PRELTE                0       0       0       0       0       0~
+  ~Z#PRELTE                0       0       0       0       0       0~
+  ~Z#PRELTE                0       0       0       0       0       0~
+  ~Z#PRELTE                1       1       1       1       1       1       1       1       1~
+  ~Z#PRELTE                0       0       0       0       0       0~
+  ~Z#HideKt\Z#PRELTE.2da~
+  ~~
+  ~0x00004000     3~
+  ~Z#P~
+  ~CHAN16 HAMM09 HELM07 BAG20 RING07 RING39 CLCK06 BOOT01 AMUL21 BRAC21 BELT08 * * * MISCBC CLCK26 SHLD25 STAF11 SW1H51 DAGG12~
+  SAY ~Prelate~
+  SAY ~Prelate~
+  SAY ~PRELATE : This Cleric, having regained previous Warrior abilities, continues to advance in both disciplines, but at the cost of Missile abilities. The Prelate uses specialised magic to greatly enhance his Melee combat abilities when necessary, but it practically makes the Prelate unable to use Missile Attacks completely.
+  
+  Advantages 
+  - Fighter level progresses at one less than Cleric level
+
+  Channel Holy Might 
+  - 1 use per day. gain 1 use at level 17, 22, 28, 35
+  - +1 to Str, Dex, Con for every 4 Caster Levels, up to a max of +5
+  - lasts 6 hrs, undispellable 
+  - while active, Missile Attacks have -16 Thac0 penalty
+  - at level 24, sets Str to 25 for the duration of the ability 
+  
+  Disadvantages 
+  - -5 Thac0 to Missile Attacks
+  - loses 75,000 XP for every level gained
+  - loses some XP upon every Rest~
+  
+COPY ~Z#HideKt\Z#CHHOL.SPL~ ~override\Z#CHHOL.SPL~
+SAY NAME1 ~Channel Holy Might~
+SAY NAME2 ~Channel Holy Might~
+
+COPY ~Z#HideKt\Z#HPPEN.SPL~ ~override\Z#HPPEN.SPL~
+
+// Archmage (Mage)
+ADD_KIT ~Z#ARCHMG~
+  ~Z#ARCHMG                1           0           1           1           0           0           0           0~
+  ~Z#ARCHMG 1 1 1 1 1    1 1 1 1 1    1 1 1 1 1    1 1 1 1 1    1 1 1 1 1    1 1 2 1 1    1 1 1 5 5    5 0 0 0 0    0 0 0 0 0    0 0 0 0 0 0~
+  ~Z#ARCHMG                0       0       0       0       0       0~
+  ~Z#ARCHMG                0       0       0       0       0       0~
+  ~Z#ARCHMG                0       0       0       0       0       0~
+  ~Z#ARCHMG                0       0       0       0       0       0~
+  ~Z#ARCHMG                1       1       1       1       1       1       1       1       1~
+  ~Z#ARCHMG                0       0       0       0       0       0~
+  ~Z#HideKt\Z#ARCHMG.2da~
+  ~~
+  ~0x00004000     1~
+  ~Z#A~
+  ~CHAN16 HAMM09 HELM07 BAG20 RING07 RING39 CLCK06 BOOT01 AMUL21 BRAC21 BELT08 * * * MISCBC CLCK26 SHLD25 STAF11 SW1H51 DAGG12~
+  SAY ~Archmage~
+  SAY ~Archmage~
+  SAY ~ARCHMAGE : This Mage, having regained previous Cleric abilities, continues to advance in both disciplines, but at the cost of  being able to use armor effectively. The extremely experienced Archmage can choose to specialise completely in spellcasting, increasing casting speed and able to cast spells back-to-back, but will forever be denied any form of effective physical attack, and will be more susceptible to physical damage.
+  
+  Advantages 
+  - Cleric level progresses at one less than Mage level
+  - Conduit HLA, gives -1 Casting Time, requires Extra Level 8 Spell. If Improved Alacrity HLA is memorised, Archmage gains permanent Improved Alacrity, but will have Physical attacks set permanently to 0, and takes an extra 40% damage on being hit by Melee or Missile attacks
+
+  Arcane Sanctuary :
+  - 1 use per day. gain 1 use at level 19, 25, 31
+  - lasts 12 hrs, undispellable
+  - sets AC to 3, with additional +1 AC bonus at level 16, 20, 25, 31 
+  - at level 20, provides Protection from Backstab while active
+  
+  Disadvantages 
+  - -4 AC except when using Arcane Sanctuary
+  - loses 67,500 XP for every level gained
+  - loses some XP upon every Rest~
+
+COPY ~Z#HideKt\Z#ASANC.SPL~ ~override\Z#ASANC.SPL~
+SAY NAME1 ~Arcane Sanctuary~
+SAY NAME2 ~Arcane Sanctuary~
+
+COPY ~Z#HideKt\Z#HAPEN.SPL~ ~override\Z#HAPEN.SPL~
+COPY ~Z#HideKt\Z#HAMAG2.SPL~ ~override\Z#HAMAG2.SPL~
+
+COPY ~Z#HideKt\Z#HAMAG.SPL~ ~override\Z#HAMAG.SPL~
+SAY NAME1 ~Conduit~
+SAY NAME2 ~Conduit~
+SAY 0x50 
+~Conduit
+- Casting Time permanently reduced by 1
+- requires Extra Level 8 Spell
+- Archmage only
+
+NOTE :
+When Improved Alacrity is Memorised
+Archmage undergoes transformation, as a conduit channelling arcane and divine power, gaining
+- permanent Improved Alacrity
+- the Archmage's Physical Attacks per round is permanently set to 0 
+- all Melee and Missile attacks inflicted upon the Archmage does 40% extra damage~
+
+
+// Divine Ranger, now Sylvan Justicar (Ranger)
+ADD_KIT ~Z#DVRANG~
+  ~Z#DVRANG                1           1           1           1           1           1           1           1~
+  ~Z#DVRANG 5 5 5 5 5    5 5 5 5 5    5 5 5 5 5    5 5 5 5 5    5 5 5 5 5    5 5 5 5 5    5 5 5 5 5    5 3 0 0 0    0 0 0 0 0    0 0 0 0 0 0~
+  ~Z#DVRANG                0       0       0       0       0       0~
+  ~Z#DVRANG                0       0       0       0       0       0~
+  ~Z#DVRANG                0       0       0       0       0       0~
+  ~Z#DVRANG                0       0       0       0       0       0~
+  ~Z#DVRANG                1       1       1       1       1       1       1       1       1~
+  ~Z#DVRANG                0       0       0       0       0       0~
+  ~Z#HideKt\Z#DVRANG.2da~
+  ~~
+  ~0x00004000     12~
+  ~Z#D~
+  ~CHAN16 HAMM09 HELM07 BAG20 RING07 RING39 CLCK06 BOOT01 AMUL21 BRAC21 BELT08 * * * MISCBC CLCK26 SHLD25 STAF11 SW1H51 DAGG12~
+  SAY ~Sylvan Justicar~
+  SAY ~Sylvan Justicar~
+  SAY ~SYLVAN JUSTICAR : This Ranger, having regained previous Cleric abilities, continues to advance in both disciplines. The Justicar sacrifices some ability with weapons and stealth in return for retaining access to his previous Ranger disciplines, and in return receives certain weapons from divine powers that allow him to cross certain traditional boundaries of Clerics.
+  
+  Advantages 
+  - Cleric level progresses at one less than Ranger level
+  - receives one Divine Bow +3 and two Divine Blades +3 that are usable by Clerics
+  - Divine Bow uses a Sling Proficiency ; Divine Blade uses a Mace Proficiency
+  - Divine Bow generates arrows that counts as of +5 enchantment
+  
+  Disadvantages 
+  - Divine Bow and Divine Blades both do slightly less damage than normal weapons
+  - may not cast Cleric spells while using Divine Bow or Divine Blade(s)
+  - receives a permanent -3 Thac0 when NOT using divine Bow or Divine Blade(s)
+  - -30 to Stealth, permanent 
+  - loses 67,500 XP for every level gained
+  - loses some XP upon every Rest~
+
+COPY ~Z#HideKt\Z#HDPEN.SPL~ ~override\Z#HDPEN.SPL~
+
+COPY ~Z#HideKt\Z#HBOW.ITM~ ~override\Z#HBOW.ITM~
+  SAY NAME1 ~Divine Bow +3~
+  SAY NAME2 ~Divine Bow +3~
+  SAY DESC ~Divine Bow +3
+  The thin, frayed string of this bow appears unusable, but when it is drawn a solid but invisible arrow becomes tangible.  When anyone approached, down would fall a never-ending rain of powerful arrows until they were dead or fled. 
+  
+  STATISTICS:
+  
+  Equipped Ability: This powerful bow requires no ammunition. Arrows created hit at +5 Enchantment.
+  THACO:  +3 bonus
+  Damage: 1d4 + 2 
+  Weight: 2
+  Speed Factor: 3
+  Proficiency Type: Sling
+  Type:  2-handed
+  Requires: 6 Strength
+  Usable by : 
+    Sylvan Justicar~
+
+COPY ~Z#HideKt\Z#HSWORD.ITM~ ~override\Z#HSWORD.ITM~
+  SAY NAME1 ~Divine Blade +3~
+  SAY NAME2 ~Divine Blade +3~
+  SAY DESC ~Divine Blade +3
+  These swords are usually referred to as doubled-edged swords, war swords, or military swords.  The blade hums slightly in your hand, the only overt evidence that magic runs through it.
+
+  STATISTICS:
+
+  THACO:  +3 bonus
+  Damage:  1d6 +2
+  Damage type:  slashing
+  Weight: 2
+  Speed Factor: 2
+  Proficiency Type: Mace
+  Type:  1-handed
+  Requires: 6 Strength
+  Usable by : 
+    Sylvan Justicar~  
+
+// checking Scripts
+
+EXTEND_BOTTOM ~DPLAYER3.BCS~ ~Z#HideKt\Z#Check.BAF~
+
+COMPILE ~Z#HideKt\Z#SYLWRD.BAF~
+COMPILE ~Z#HideKt\Z#SHDBLD.BAF~
+COMPILE ~Z#HideKt\Z#SPSTEL.BAF~
+COMPILE ~Z#HideKt\Z#ELDRPH.BAF~
+COMPILE ~Z#HideKt\Z#PRELTE.BAF~
+COMPILE ~Z#HideKt\Z#ARCHMG.BAF~
+COMPILE ~Z#HideKt\Z#DVRANG.BAF~
+
+// including the Resting Penalties
+
+EXTEND_TOP ~Z#SYLWRD.BCS~ ~Z#HideKt\Z#RestXP.BAF~
+EXTEND_TOP ~Z#SHDBLD.BCS~ ~Z#HideKt\Z#RestXP.BAF~
+EXTEND_TOP ~Z#SPSTEL.BCS~ ~Z#HideKt\Z#RestXP.BAF~
+EXTEND_TOP ~Z#ELDRPH.BCS~ ~Z#HideKt\Z#RestXP.BAF~
+EXTEND_TOP ~Z#PRELTE.BCS~ ~Z#HideKt\Z#RestXP.BAF~
+EXTEND_TOP ~Z#ARCHMG.BCS~ ~Z#HideKt\Z#RestXP.BAF~
+EXTEND_TOP ~Z#DVRANG.BCS~ ~Z#HideKt\Z#RestXP.BAF~
+
+// HLA Listings
+
+COPY ~Z#HideKt\LUZ#S.2DA~ ~override\LUZ#S.2DA~
+COPY ~Z#HideKt\LUZ#W.2DA~ ~override\LUZ#W.2DA~
+COPY ~Z#HideKt\LUZ#B.2DA~ ~override\LUZ#B.2DA~
+COPY ~Z#HideKt\LUZ#E.2DA~ ~override\LUZ#E.2DA~
+COPY ~Z#HideKt\LUZ#P.2DA~ ~override\LUZ#P.2DA~
+COPY ~Z#HideKt\LUZ#A.2DA~ ~override\LUZ#A.2DA~
+COPY ~Z#HideKt\LUZ#D.2DA~ ~override\LUZ#D.2DA~
+
+
+BEGIN ~Druid XP Req set to Mage XP Req for levels 14-20~
+
+COPY_EXISTING ~XPLEVEL.2DA~ ~override~
+SET_2DA_ENTRY  6 15 18  ~1875000~
+SET_2DA_ENTRY  6 16 18  ~2250000~
+SET_2DA_ENTRY  6 17 18  ~2625000~
+SET_2DA_ENTRY  6 18 18  ~3000000~
+SET_2DA_ENTRY  6 19 18  ~3375000~
+
+
+BEGIN ~Aerie the Archmage~
+GROUP ~Bioware NPC Hidden Kits~
+REQUIRE_FILE ~Override\Z#HLV1UP.SPL~ ~You have not installed Hidden Kits.~ 
+COPY ~Z#HideKt\NPC\Aerie6.CRE~ ~override\Aerie6.CRE~
+COPY ~Z#HideKt\NPC\Aerie7.CRE~ ~override\Aerie7.CRE~
+COPY ~Z#HideKt\NPC\Aerie9.CRE~ ~override\Aerie9.CRE~
+COPY ~Z#HideKt\NPC\Aerie10.CRE~ ~override\Aerie10.CRE~
+COPY ~Z#HideKt\NPC\Aerie11.CRE~ ~override\Aerie11.CRE~
+EXTEND_BOTTOM ~AERIE.BCS~ ~Z#HideKt\NPC\Aerie.BAF~
+
+BEGIN ~Anomen the Prelate~
+GROUP ~Bioware NPC Hidden Kits~
+REQUIRE_FILE ~Override\Z#HLV1UP.SPL~ ~You have not installed Hidden Kits.~ 
+EXTEND_BOTTOM ~ANOMEN.BCS~ ~Z#HideKt\NPC\ANOMEN.BAF~
+
+BEGIN ~Imoen the Eldritch Phantom~
+GROUP ~Bioware NPC Hidden Kits~
+COPY ~Z#HideKt\NPC\Imoen211.CRE~ ~override\Imoen211.CRE~
+COPY ~Z#HideKt\NPC\Imoen213.CRE~ ~override\Imoen213.CRE~
+EXTEND_BOTTOM ~IMOEN2.BCS~ ~Z#HideKt\NPC\IMOEN2.BAF~
+
+BEGIN ~Jaheira the Sylvan Warden~
+GROUP ~Bioware NPC Hidden Kits~
+REQUIRE_FILE ~Override\Z#HLV1UP.SPL~ ~You have not installed Hidden Kits.~ 
+COPY ~Z#HideKt\NPC\Jaheir7.CRE~ ~override\Jaheir7.CRE~
+COPY ~Z#HideKt\NPC\Jaheir8.CRE~ ~override\Jaheir8.CRE~
+COPY ~Z#HideKt\NPC\Jaheir11.CRE~ ~override\Jaheir11.CRE~
+COPY ~Z#HideKt\NPC\Jaheir12.CRE~ ~override\Jaheir12.CRE~
+EXTEND_BOTTOM ~JAHEIRA.BCS~ ~Z#HideKt\NPC\JAHEIRA.BAF~
+
+BEGIN ~Jan the Eldritch Phantom~
+GROUP ~Bioware NPC Hidden Kits~
+REQUIRE_FILE ~Override\Z#HLV1UP.SPL~ ~You have not installed Hidden Kits.~ 
+COPY ~Z#HideKt\NPC\Jan8.CRE~ ~override\Jan8.CRE~
+COPY ~Z#HideKt\NPC\Jan10.CRE~ ~override\Jan10.CRE~
+COPY ~Z#HideKt\NPC\Jan11.CRE~ ~override\Jan11.CRE~
+COPY ~Z#HideKt\NPC\Jan12.CRE~ ~override\Jan12.CRE~
+EXTEND_BOTTOM ~JAN.BCS~ ~Z#HideKt\NPC\JAN.BAF~
+
+BEGIN ~Korgan the Shadow Blade~
+GROUP ~Bioware NPC Hidden Kits~
+REQUIRE_FILE ~Override\Z#HLV1UP.SPL~ ~You have not installed Hidden Kits.~ 
+COPY ~Z#HideKt\NPC\Korgan8.CRE~ ~override\Korgan8.CRE~
+COPY ~Z#HideKt\NPC\Korgan9.CRE~ ~override\Korgan9.CRE~
+COPY ~Z#HideKt\NPC\Korgan11.CRE~ ~override\Korgan11.CRE~
+COPY ~Z#HideKt\NPC\Korgan12.CRE~ ~override\Korgan12.CRE~
+EXTEND_BOTTOM ~KORGAN.BCS~ ~Z#HideKt\NPC\KORGAN.BAF~
+
+BEGIN ~Mazzy the Prelate, w/ Modified Items~
+GROUP ~Bioware NPC Hidden Kits~
+REQUIRE_FILE ~Override\Z#HLV1UP.SPL~ ~You have not installed Hidden Kits.~ 
+COPY ~Z#HideKt\NPC\Mazzy8.CRE~ ~override\Mazzy8.CRE~
+COPY ~Z#HideKt\NPC\Mazzy9.CRE~ ~override\Mazzy9.CRE~
+COPY ~Z#HideKt\NPC\Mazzy11.CRE~ ~override\Mazzy11.CRE~
+COPY ~Z#HideKt\NPC\Mazzy12.CRE~ ~override\Mazzy12.CRE~
+EXTEND_BOTTOM ~MAZZY.BCS~ ~Z#HideKt\NPC\MAZZY.BAF~
+COPY ~Z#HideKt\NPC\NPBOW.Itm~ ~override\NPBOW.Itm~
+COPY ~Z#HideKt\NPC\NPSW01.Itm~ ~override\NPSW01.Itm~
+  SAY NAME1 ~Flail of Arvoreen~
+  SAY NAME2 ~Flail of Arvoreen~
+  SAY DESC ~Flail of Arvoreen
+
+Another gift to Mazzy from Arvoreen, this flail may only be used by halflings.  The enchantments that exist within this flail give it the ability to slow any opponent struck by it.
+
+STATISTICS:
+
+Abilities: Target must save vs. wand or have movement rated slowed by 2 (for 45 seconds).  Wielder of the flail is immune to slow and stun effects.
+THAC0: +2 bonus
+Damage:  1D6 +2
+Damage type:  piercing
+Weight: 3
+Speed Factor: 1
+Proficiency Type: Flail/Morningstar
+Type:  1-handed
+Requires : 13 Strength
+Usable By:
+ Halflings~
+
+BEGIN ~Minsc the Sylvan Justicar~
+GROUP ~Bioware NPC Hidden Kits~
+REQUIRE_FILE ~Override\Z#HLV1UP.SPL~ ~You have not installed Hidden Kits.~ 
+COPY ~Z#HideKt\NPC\Minsc7.CRE~ ~override\Minsc7.CRE~
+COPY ~Z#HideKt\NPC\Minsc8.CRE~ ~override\Minsc8.CRE~
+COPY ~Z#HideKt\NPC\Minsc9.CRE~ ~override\Minsc9.CRE~
+COPY ~Z#HideKt\NPC\Minsc10.CRE~ ~override\Minsc10.CRE~
+COPY ~Z#HideKt\NPC\Minsc12.CRE~ ~override\Minsc12.CRE~
+EXTEND_BOTTOM ~MINSC.BCS~ ~Z#HideKt\NPC\MINSC.BAF~
+
+BEGIN ~Sarevok the Spell Steel~
+GROUP ~Bioware NPC Hidden Kits~
+REQUIRE_FILE ~Override\Z#HLV1UP.SPL~ ~You have not installed Hidden Kits.~ 
+COPY ~Z#HideKt\NPC\Sarevok.CRE~ ~override\Sarevok.CRE~
+EXTEND_BOTTOM ~SAREV25.BCS~ ~Z#HideKt\NPC\SAREVOK.BAF~
+
+BEGIN ~Valygar the Sylvan Justicar, w/ Modified Item~
+GROUP ~Bioware NPC Hidden Kits~
+REQUIRE_FILE ~Override\Z#HLV1UP.SPL~ ~You have not installed Hidden Kits.~ 
+COPY ~Z#HideKt\NPC\Valyg8.CRE~ ~override\Valyg8.CRE~
+COPY ~Z#HideKt\NPC\Valyg9.CRE~ ~override\Valyg9.CRE~
+COPY ~Z#HideKt\NPC\Valyg11.CRE~ ~override\Valyg11.CRE~
+COPY ~Z#HideKt\NPC\Valyg12.CRE~ ~override\Valyg12.CRE~
+EXTEND_BOTTOM ~VALYGAR.BCS~ ~Z#HideKt\NPC\VALYGAR.BAF~
+
+COPY ~Z#HideKt\NPC\NPSW04.Itm~ ~override\NPSW04.Itm~
+  SAY NAME1 ~Corthala Family Blade~
+  SAY NAME2 ~Corthala Family Blade~
+  SAY DESC ~Corthala Family Blade
+This fine katana radiates magical energy when wielded by Valygar.  The blade was designed to respond only to those with the blood of the family Corthala flowing through their veins.  This +2 blade causes additional bleeding damage when it strikes an opponent.
+
+STATISTICS
+
+Abilities: 2 points of additional bleeding damage on target every round for 2 rounds
+THAC0: +2 bonus
+AC: +2 bonus against slashing weapons
+Damage:  1D10 +2
+Damage type:  slashing
+Weight:  4
+Speed Factor: 2
+Proficiency Type: Mace
+Type:  1-handed
+Usable By:
+ Valygar~
+
+COPY ~Z#HideKt\NPC\NPSW041.Itm~ ~override\NPSW041.Itm~
+  SAY NAME1 ~Corthala Family Blade~
+  SAY NAME2 ~Corthala Family Blade~
+  SAY DESC ~Corthala Family Blade
+This fine katana radiates magical energy when wielded by Valygar.  The blade was designed to respond only to those with the blood of the family Corthala flowing through their veins.  This +2 blade causes additional bleeding damage when it strikes an opponent.
+
+Valygar does not seem to be affected by the Sylvan Justicar penalty of -3 Thac0 when using this blade.
+
+STATISTICS
+
+Abilities: 2 points of additional bleeding damage on target every round for 2 rounds
+THAC0: +2 bonus
+AC: +2 bonus against slashing weapons
+Damage:  1D10 +2
+Damage type:  slashing
+Weight:  4
+Speed Factor: 2
+Proficiency Type: Mace
+Type:  1-handed
+Usable By:
+ Valygar~
+
+BEGIN ~Viconia the Prelate~
+GROUP ~Bioware NPC Hidden Kits~
+REQUIRE_FILE ~Override\Z#HLV1UP.SPL~ ~You have not installed Hidden Kits.~ 
+COPY ~Z#HideKt\NPC\Viconi6.CRE~ ~override\Viconi6.CRE~
+COPY ~Z#HideKt\NPC\Viconi8.CRE~ ~override\Viconi8.CRE~
+COPY ~Z#HideKt\NPC\Viconi9.CRE~ ~override\Viconi9.CRE~
+COPY ~Z#HideKt\NPC\Viconi11.CRE~ ~override\Viconi11.CRE~
+COPY ~Z#HideKt\NPC\Viconi13.CRE~ ~override\Viconi13.CRE~
+EXTEND_BOTTOM ~VICONIA.BCS~ ~Z#HideKt\NPC\VICONI.BAF~
+
+BEGIN ~Yoshimo the Shadow Blade~
+GROUP ~Bioware NPC Hidden Kits~
+REQUIRE_FILE ~Override\Z#HLV1UP.SPL~ ~You have not installed Hidden Kits.~ 
+COPY ~Z#HideKt\NPC\Yoshi7.CRE~ ~override\Yoshi7.CRE~
+COPY ~Z#HideKt\NPC\Yoshi8.CRE~ ~override\Yoshi8.CRE~
+COPY ~Z#HideKt\NPC\Yoshi10.CRE~ ~override\Yoshi10.CRE~
+COPY ~Z#HideKt\NPC\Yoshi11.CRE~ ~override\Yoshi11.CRE~
+COPY ~Z#HideKt\NPC\Yoshi12.CRE~ ~override\Yoshi12.CRE~
+EXTEND_BOTTOM ~YOSHIMO.BCS~ ~Z#HideKt\NPC\YOSHIMO.BAF~
+	
+

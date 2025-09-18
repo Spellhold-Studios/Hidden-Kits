@@ -1,0 +1,82 @@
+
+// takes swords back from party
+
+IF	Kit(Myself,Z#DVRANG)
+	NumItemsParty("Z#HSWORD",2)
+	NumItemsLT("Z#HSWORD",Myself,2)
+THEN
+	RESPONSE #100	
+	TakePartyItemAll("Z#HSWORD")
+END
+
+IF	Kit(Myself,Z#DVRANG)
+	NumItemsParty("Z#HSWORD",1)
+	!HasItem("Z#HSWORD",Myself)
+THEN
+	RESPONSE #100	
+	TakePartyItemAll("Z#HSWORD")
+END
+
+// takes bow back from party
+
+IF	Kit(Myself,Z#DVRANG)
+	PartyHasItem("Z#HBOW")
+	!HasItem("Z#HBOW",Myself)
+THEN
+	RESPONSE #100	
+	TakePartyItem("Z#HBOW")
+END
+
+// resets the Equal Trigger to one less than - to be done 
+
+IF	Kit(Myself,Z#DVRANG)
+	HotKey(L)
+	Global("Z#HLV1CH","LOCALS",1)
+THEN
+	RESPONSE #100	
+	SetGlobal("Z#HLV1CH","LOCALS",0)
+END
+
+// raises the Character's inactive class to one less than active class
+
+IF	Kit(Myself,Z#DVRANG)
+	!Class(Myself,RANGER)
+	Class(Myself,CLERIC_RANGER)
+	Global("Z#HLV1CH","LOCALS",0)
+THEN
+	RESPONSE #100	
+	ActionOverride(Myself, ApplySpellRES("Z#HLV1UP",Myself))
+END
+
+IF	Kit(Myself,Z#DVRANG)
+	Class(Myself,RANGER)
+	!Class(Myself,CLERIC_RANGER)
+	Global("Z#HLV1CH","LOCALS",0)
+THEN
+	RESPONSE #100	
+	SetGlobal("Z#HLV1CH","LOCALS",1)
+	ActionOverride(Myself, ApplySpellRES("Z#HLV1DN",Myself))
+END
+
+// Auto-ensures LEVEL1 level never exceeds the LEVEL2 Level
+
+IF	Kit(Myself,Z#DVRANG)
+	Class(Myself,RANGER)
+	!Class(Myself,CLERIC_RANGER)
+	Global("Z#HLV1CH","LOCALS",1)
+THEN
+	RESPONSE #100	
+	ActionOverride(Myself, ApplySpellRES("Z#HLV1DN",Myself))
+END
+
+// gives items
+
+IF	Kit(Myself,Z#DVRANG)
+	Global("Z#HDWEAP","LOCALS",0)
+THEN
+	RESPONSE #100	
+	SetGlobal("Z#HDWEAP","LOCALS",1)
+	GiveItemCreate("Z#HBOW",Myself,0,0,0)
+	GiveItemCreate("Z#HSWORD",Myself,0,0,0)
+	GiveItemCreate("Z#HSWORD",Myself,0,0,0)
+END
